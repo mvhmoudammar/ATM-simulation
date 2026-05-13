@@ -36,7 +36,6 @@ private slots:
     void onHistoryClicked();
     void onLogoutClicked();
 
-    // دوال شاشة التأكيد الداخلية الجديدة
     void executePendingAction();
     void cancelPendingAction();
 
@@ -45,17 +44,14 @@ private:
     Account currentAccount;
     bool loggedIn = false;
 
-    // متغيرات لحفظ العملية قبل التأكيد
     enum PendingAction { None, Deposit, Withdraw, Transfer };
     PendingAction currentAction = None;
     double currentAmount = 0.0;
     QString currentTarget = "";
 
-    // المكونات الأساسية
     QStackedWidget *pages;
     QTimer *clockTimer;
 
-    // الشاشات
     QWidget *loginPage;
     QWidget *createPage;
     QWidget *dashPage;
@@ -64,19 +60,16 @@ private:
     QWidget *withdrawPage;
     QWidget *transferPage;
     QWidget *historyPage;
-    QWidget *confirmPage; // شاشة التأكيد الجديدة
+    QWidget *confirmPage; 
     QWidget *successPage;
 
-    // عناصر الواجهة
     QLabel *clockLabel;
     QLabel *dashWelcome;
     QLabel *balanceDisplayLabel;
 
-    // عناصر شاشة التأكيد
     QLabel *confirmTitle;
     QLabel *confirmDetails;
 
-    // عناصر شاشة النجاح
     QLabel *successMessage;
     QLabel *successBalanceLabel;
 
@@ -99,7 +92,6 @@ private:
 
     QTextEdit *historyText;
 
-    // دوال المساعدة والبناء
     void applyGlobalStyle();
     QWidget* makeCard(QWidget* parent = nullptr);
     QPushButton* makeBtn(const QString& text, const QString& color);
@@ -114,7 +106,7 @@ private:
     QWidget* buildWithdrawPage();
     QWidget* buildTransferPage();
     QWidget* buildHistoryPage();
-    QWidget* buildConfirmPage(); // بناء شاشة التأكيد
+    QWidget* buildConfirmPage(); 
     QWidget* buildSuccessPage();
 
     void refreshDash();
